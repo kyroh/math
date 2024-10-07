@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 2} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{6.3 Question 41}
+The region bounded by the given curves is rotated about the specified axis.
+Find the volume of the resulting solid by any method.
+
+\begin{equation}\label{eq:1}
+	x^2 + (y-1)^2 = 1; \quad \text{about the $y$-axis}
+\end{equation}
+
+\subsection*{Solution}
+The given curve is a unit circle shifted upwards by one unit and therefore the volume of the shape rotated about the $y$-axis is the volume of a sphere with a radius of length 1.
+Let $v$ equal the volume of a sphere as a function of the radius such that;
+\begin{equation}
+	v(r) = \frac{4}{3}\pi r^3
+\end{equation}
+where $r$ is the radius from the center of the sphere to the surface.
+Then the volume of sphere created by the revolution of equation (\ref{eq:1}) about the $y$-axis is;
+
+\[
+	v(1) = \frac{4}{3}\pi (1)^3 = \boxed{\frac{4 \pi}{3}}
+\]
+
+\subsection*{Proof}
+The equation of a circle is $(x-a)^2 + (y-b)^2 = r^2$. Given $a=0$, $b=1$, and $r=1$ we obtain equation (\ref{eq:1});
+\begin{align*}
+	(x-0)^2 + (y-1)^2 &= 1^2 \\
+	x^2 + (y-1)^2 &= 1
+\end{align*}
+Revolve the curve described by the equation of the circle $y=\sqrt{r^2-x^2}$(for $x \in \left[ -r,r \right])$ around the $y$-axis.
+By disc integration, the equation for the volume of revolution about the $y$-axis is:
+
+\begin{equation}
+	V = \pi \int_a^b \left[f(y)^2 - g(y)^2 \right] dy\ .
+\end{equation}
+Therefore
+\begin{align*}
+	V &= \pi \int_{-r}^r \left[ \sqrt{r^2 - x^2}  - (0)^2\right] dy \\
+	V &= \pi \left( \left[ r^2(r) - \frac{r^3}{3} \right] - \left[ r^2(-r) - \frac{(-r)^3}{3} \right] \right) \\
+	V &= \pi \left( 2 \left( r^3 - \frac{r^3}{3} \right) \right) \\
+	V &= \pi \left( 2 \cdot \frac{2r^3}{3} \right) \\
+	  &= \frac{4}{3} \pi r^3 \quad \blacksquare
+\end{align*}
+
+\end{document}

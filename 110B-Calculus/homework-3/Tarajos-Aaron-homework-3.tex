@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 3} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{7.1 Question 15}
+Evaluate the integral.
+
+\[
+	\int (\ln x)^2\ dx
+\]
+
+\subsection*{Solution}
+We can start by finding
+
+\[
+	\int \ln x\ dx
+\]
+using integration by parts;
+\begin{align*}
+	\int \ln x\ dx &= \int \left( x \right)^\prime \ln x\ dx \\
+		       &= x \ln x - \int x \left( \ln x \right)^\prime\ dx \\
+		       &= x \ln x - \int x \cdot \frac{1}{x}\ dx \\
+		       &= x \ln x - \int 1\ dx \\
+		       &= x \ln x - x + C
+\end{align*}
+Knowing this antiderivative, we can use integraion by parts on $\left( \ln x \right)^2$;
+\begin{align*}
+	\int \left( \ln x\right) \left( \ln x \right)\ dx &= \int \left(x \ln x - x \right)^\prime \left(\ln x\right)\ dx \\
+							  &= \left(x \ln x - x \right) \ln x - \int \left(x \ln x - x \right) \left(\ln x\right)^\prime\ dx \\
+							  &= \left(x \ln x - x \right) \ln x - \int \left(x \ln x - x \right) \frac{1}{x}\ dx \\
+							  &= \left(x \ln x - x \right) \ln x - \int x\left(\ln x - 1 \right) \frac{1}{x}\ dx \\
+							  &= \left(x \ln x - x \right) \ln x - \int \left(\ln x - 1 \right)\ dx \\
+							  &= \left(x \ln x - x \right) \ln x - \left(\int \ln x\ dx - \int 1\ dx \right)\\
+							  &= \left(x \ln x - x \right) \ln x - \left[\left(x \ln x - x \right) - x \right] + C\\
+							  &= x\ln^2x - x\ln x - x\ln x + x + x + C \\
+							  &= \boxed{x\ln^2x - 2x\ln x + 2x + C}
+\end{align*}
+
+\end{document}

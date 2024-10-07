@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 3} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{7.8 Question 31}
+Determine whether each integral is convergent or divergent. Evaluate those that are convergent.
+
+\[
+	\int_{-2}^3 \frac{1}{x^4} dx
+\]
+
+\subsection*{Solution}
+Let's consider the region to the right of zero. Given the definition of improper integrals we can say that an integral is convergent if
+
+\[
+	\int_0^a \frac{1}{x^4}\ dx= \lim_{t \to 0} \int_t^a \frac{1}{x^4}\ dx
+\]
+where $\lim_{t \to 0}$ is a finite number. So we have
+
+\begin{align*}
+	\lim_{t \to 0} \int_t^a \frac{1}{x^4}\ dx &= \left[ -\frac{1}{3x^3} \right]_t^a \\
+	&= \left[ \lim_{t \to 0} -\frac{1}{3t^3} + \frac{1}{3a^3}\right] \\
+	&= -\infty + \frac{1}{3a^3}
+\end{align*}
+because we have an infiinity,
+
+\[
+	\int_0^a \frac{1}{x^4}\ dx
+\]
+ is divergent. Then, because $0 \in [-2,3]$ we can say that
+
+\[
+	\int_{-2}^3 \frac{1}{x^4} dx
+\]
+is divergent.
+
+\end{document}
