@@ -1,4 +1,4 @@
-PWD /home/aaron/University/math/110B-Calculus/homework-5
+PWD /home/kyroh/University/math/110B-Calculus/homework-5
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT Tarajos-Aaron-homework-5.tex
@@ -321,8 +321,10 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/rtxb.tfm
 INPUT /usr/share/texmf-dist/fonts/vf/public/txfonts/txmi.vf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/rtxmi.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/rtxptmri.tfm
+INPUT /usr/share/texmf-dist/fonts/vf/public/txfonts/txr.vf
+INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/rtxptmr.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/rtxr.tfm
 INPUT Tarajos-Aaron-homework-5.aux
-INPUT /usr/share/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/txfonts/txex.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/txfonts/txsy.pfb

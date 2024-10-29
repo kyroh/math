@@ -19,7 +19,7 @@ Math 110B - Calculus II  \hfill Prof. Jamey Bass
 \noindent\rule{\textwidth}{0.4pt}
 
 \begin{center}
-    \textbf{\LARGE Homework 3} \\
+    \textbf{\LARGE Homework 5} \\
     \vspace{12pt}
     \large Aaron W. Tarajos \\
     \textit{\today}
@@ -38,21 +38,22 @@ Determine whether each integral is convergent or divergent. Evaluate those that 
 Let's consider the region to the right of zero. Given the definition of improper integrals we can say that an integral is convergent if
 
 \[
-	\int_0^a \frac{1}{x^4}\ dx= \lim_{t \to 0} \int_t^a \frac{1}{x^4}\ dx
+	\int_{0^+}^a \frac{1}{x^4}\ dx= \lim_{t \to 0} \int_t^a \frac{1}{x^4}\ dx
 \]
-where $\lim_{t \to 0}$ is a finite number. So we have
+where $\lim_{t \to 0^+}$ is a finite number. So we have
 
 \begin{align*}
-	\lim_{t \to 0} \int_t^a \frac{1}{x^4}\ dx &= \left[ -\frac{1}{3x^3} \right]_t^a \\
-	&= \left[ \lim_{t \to 0} -\frac{1}{3t^3} + \frac{1}{3a^3}\right] \\
+	\lim_{t \to 0^+} \int_t^a \frac{1}{x^4}\ dx &= \lim_{t \to 0^+} \left[ -\frac{1}{3x^3} \right]_t^a \\
+	&= \lim_{t \to 0^+} -\frac{1}{3t^3} + \frac{1}{3a^3} \\
 	&= -\infty + \frac{1}{3a^3}
 \end{align*}
-because we have an infiinity,
-
-\[
-	\int_0^a \frac{1}{x^4}\ dx
-\]
- is divergent. Then, because $0 \in [-2,3]$ we can say that
+because we have an infiinity, it is divergent. Similarly for $\lim_{t \to 0^-}$, we have
+\begin{align*}
+	\lim_{t \to 0^-} \int_t^a \frac{1}{x^4}\ dx &= \lim{t \to 0^-} \left[ -\frac{1}{3x^3} \right]_t^a \\
+	&= \lim_{t \to 0^-} -\frac{1}{3t^3} + \frac{1}{3a^3} \\
+	&= \infty + \frac{1}{3a^3}
+\end{align*}
+because the integral is divergent near zero from both sides
 
 \[
 	\int_{-2}^3 \frac{1}{x^4} dx

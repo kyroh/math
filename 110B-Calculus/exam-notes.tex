@@ -10,7 +10,7 @@
 
 \pgfplotsset{compat=1.18}
 
-\usepackage[a4paper, top=1cm, bottom=1cm, left=0.3cm, right=0.3cm, includehead, includefoot]{geometry}
+\usepackage[a4paper, top=1cm, bottom=1cm, left=1cm, right=1cm, includehead, includefoot]{geometry}
 
 \begin{document}
 
@@ -105,7 +105,8 @@ Derived from pathagorean theorem for the infinite sum of secant lines i.e. $\sqr
 	\int \frac{1}{\sqrt{1-x^2}} &= \arcsin x + C \\
 	\int -\frac{1}{\sqrt{1-x^2}} &= \arccos x + C \\
 	\int \frac{dx}{x^2-a^2} &= \frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right| \\
-	\int \frac{dx}{\sqrt{x^2 \pm a^2}} &= \ln \left| x + \sqrt{x^2 \pm a^2} \right|
+	\int \frac{dx}{\sqrt{x^2 \pm a^2}} &= \ln \left| x + \sqrt{x^2 \pm a^2} \right| \\
+	\int f^{-1}(x) \ dx &= x f^{-1}(x) - (F \circ f^{-1})(x) + C
 \end{align*}
 
 \subsubsection*{Surface area}
@@ -120,6 +121,13 @@ Pressure is given by
 \]
 
 where area is width as a function of y and height is $dy$ and $\rho$ is the density.
+
+\subsubsection*{Trig integral tip}
+If encountering a form like
+\[
+	\int \sin^5 x \cos^4 x\ dx
+\]
+let $u$ be the lower order term and keep one of the higher order terms from the other then convert the rest to match using $1 = \cos^2 x + \sin^2 x$
 
 \end{multicols}
 
@@ -168,13 +176,34 @@ Then
     \draw (0, 0) rectangle (0.3, 0.3);
 \end{tikzpicture}
 
+Let $x = \frac{3}{5} \sin \theta$, $dx = \frac{3}{5} \cos \theta \ d\theta$, and $\sec \theta = \frac{3}{\sqrt{9-25x^2}}$, then;
+
 \begin{align*}
-	\int \frac{x^2}{\sqrt{9-25x^2}}\ dx &= \int \left(\frac{9 \sin^2 \theta}{25}\right) \left(\frac{\sec \theta}{3}\right) \ d\theta \\
-					    &= \frac{9}{75} \int \sin^2 \theta \sec \theta \ d \theta \\
-					    &= \frac{9}{75} \int (1-cos^2\theta) \sec \theta \ d \theta \\
-					    &= \frac{9}{75} \int \sec \theta - \cos^2 \theta \cdot \frac{1}{\cos \theta} \ d \theta \\
-					    &= \frac{9}{75} \int \sec \theta - \cos \theta \ d \theta
+	\int \frac{x^2}{\sqrt{9-25x^2}}\ dx &= \int \left( \frac{3 \sin \theta}{5}\right)^2 \cdot \frac{\sec \theta}{3} \cdot \frac{3}{5}\cos \theta \ d \theta \\
+					    &= \int \frac{9}{125} \sin^2 \theta \ d \theta \\
+					    &= \frac{9}{125} \int \frac{1-\cos(2 \theta)}{2} \ d \theta \\
+					    &= \frac{9}{250} \int 1 - \cos(2 \theta) \ d \theta \\
+					    &= \frac{9}{250} \left[ \theta - \frac{\sin 2\theta}{2} \right] + C \\
+					    &= \frac{9}{250} \left[ \theta - 2 \sin \theta \cos \theta \right] + C \\
+					    &= \frac{9}{250} \left[ arcsin\left(\frac{5x}{3}\right) - 2\left(\frac{5x}{3}\right)\left(\frac{\sqrt{9-25x^2}}{3} \right) \right] + C
 \end{align*}
+
+\subsubsection*{Notable tricks if you're stuck}
+\begin{enumerate}
+	\item You can integrate by parts with $g(x) = 1$
+	\item \[ \frac{x^2}{x^2+1} = \frac{x^2 + 1 - 1}{x^2 +1} = 1 - \frac{1}{x^2+1} \]
+	\item related to (2) find creative ways to multiply by 1 to create substitutable problems. i.e. $\int \sec \theta$ see below
+	\item when doing $u$ sub you can write $x$ as a function of $u$ and sub out remaining $x$ that are unresolved by $\frac{du}{dx}$
+\end{enumerate}
+
+\begin{align*}
+	\int \sec \theta \ d \theta &= \int \sec \theta \cdot \frac{\sec \theta + \tan \theta}{\sec \theta + \tan \theta} \ d \theta \\
+				    &= \int \frac{sec^2 \theta + \sec \theta \tan \theta}{\sec \theta + \tan \theta} \ d \theta \\
+				    &= \int \frac{1}{u} \ du \\
+				    &= \ln|u| \\
+				    &= \ln|\sec \theta + \tan \theta | + C
+\end{align*}
+
 
 \end{multicols}
 
