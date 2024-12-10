@@ -17,7 +17,7 @@
 \noindent
 Math 110B - Calculus \hfill Aaron W. Tarajos
 \begin{center}
-	\textbf{Midterm Notes}
+	\textbf{Final Exam Notes}
 \end{center}
 
 \noindent\rule{\textwidth}{0.4pt}
@@ -106,7 +106,6 @@ Derived from pathagorean theorem for the infinite sum of secant lines i.e. $\sqr
 	\int -\frac{1}{\sqrt{1-x^2}} &= \arccos x + C \\
 	\int \frac{dx}{x^2-a^2} &= \frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right| \\
 	\int \frac{dx}{\sqrt{x^2 \pm a^2}} &= \ln \left| x + \sqrt{x^2 \pm a^2} \right| \\
-	\int f^{-1}(x) \ dx &= x f^{-1}(x) - (F \circ f^{-1})(x) + C
 \end{align*}
 
 \subsubsection*{Surface area}
@@ -132,61 +131,170 @@ let $u$ be the lower order term and keep one of the higher order terms from the 
 \end{multicols}
 
 \pagebreak
+\subsection*{Problems that were implied to be on the exam}
 \begin{multicols}{2}
-\section*{Problems that were implied to be on the exam}
-\subsection*{Work}
-A tank is full of water. Find the work required to pump the water out of the spout. In Exercises 25 and 26 use the fact that water weighs 62.5 lb/ft$^3$.
-
-Draw a circle and use the slice method. The function of the circle is $x^2 + y^2 = 9$ and the volume of each slice is $V = \pi x^2 \Delta y = \pi (9-y^2) \Delta y$. Then the distance is $(4-y)$
-\[
-	W = \pi \int_{-3}^3 (9-y^2)(4-y)\ dy
-\]
-Note that its in meters so we can just use 1000 kg/m$^3$ for density of water don't forget to convert mass to weight if using this approach, lb are a unit of weight.
-
-\subsection*{Integration by parts}
-\[
-	\int e^{2x} \cos(3x)\ dx
-\]
-
+\subsubsection*{Separable differential equation with PFD}
 \begin{align*}
-	\int e^{2x} \cos(3x)\ dx &= \frac{e^{2x} \cos(3x)}{2} - \int -\frac{e^{2x} 3 \sin(3x)}{2}\ dx \\
-				 &= \frac{e^{2x} \cos(3x)}{2} + \frac{3}{2}\int e^{2x} \sin(3x)\ dx \\
-				 &= \frac{e^{2x} \cos(3x)}{2} + \frac{3}{2}\left[\frac{e^{2x} \sin(3x)}{2} - \frac{3}{2}\int e^{2x} \cos(3x)\ dx \right] \\
-				 &= \frac{e^{2x} \cos(3x)}{2} + \frac{3e^{2x} \sin(3x)}{4} - \frac{9}{4}\int e^{2x} \cos(3x)\ dx \\
+	\frac{dy}{dx} &= y \cdot \frac{x+1}{(x-1)^2(x+2)} \\
+	\frac{1}{y} \frac{dy}{dx} &= \frac{x+1}{(x-1)^2(x+2)} \\
+	\int \frac{1}{y} \frac{dy}{dx}\ dx &= \int \frac{x+1}{(x-1)^2(x+2)}\ dx \\
+	& \text{by ROS} \\
+	\int \frac{1}{y}\ dy &= \int \frac{x+1}{(x-1)^2(x+2)}\ dx
 \end{align*}
-Then
+handling the fraction;
 \begin{align*}
-	\frac{13}{4} \int e^{2x} \cos(3x)\ dx &= \frac{e^{2x} \cos(3x)}{2} + \frac{3e^{2x} \sin(3x)}{4} \\
-					      &= \boxed{\frac{2e^{2x} \cos(3x)}{13} + \frac{3e^{2x} \sin(3x)}{13}}
+\frac{x+1}{(x-1)^2(x+2)} &= \frac{A}{(x-1)^2} + \frac{B}{x+2} + \frac{C}{x-1} \\
+	x + 1 &= A(x+2) + B(x-1)^2 + C(x-1)(x+2) \\
+	x + 1 &= Ax + 2A + Bx^2 -2Bx + B + Cx^2 + Cx -2C \\
+	x + 1 &= x(A-2B+C) + x^2(B+C) + (2A + B - 2C)
 \end{align*}
-
-\subsection*{Trig sub}
-
+then we have the system of equations;
+\begin{align*}
+	0 &= B+C \\
+	1 &= 2A + B-2C \\
+	1 &= A - 2B + C
+\end{align*}
 \[
-	\int \frac{x^2}{\sqrt{9-25x^2}}\ dx
+	2 = 3A \implies A = \frac{2}{3}
+\]
+Solve for $B$ and $C$ we obtain the following
+\begin{align*}
+	\int \frac{1}{y}\ dy &= \int \left( \frac{2/3}{(x-1)^2} + \frac{-1/9}{x+2} + \frac{1/9}{x-1} \right)\ dx
+\end{align*}
+Use $u$-sub on the first term where $u = x-1$;
+\[
+	\frac{2}{3} \int \frac{1}{u^2} = -\frac{2}{3u}
+\]
+so we have;
+\[
+	\ln|y| = \frac{2}{3x-3} + \frac{1}{9}\ln|x-1| -\frac{1}{9}\ln|x+2| + C
 \]
 
-\begin{tikzpicture}
-    \draw[thick] (0, 0) -- (4, 0) -- (0, 3) -- cycle;
+\subsubsection*{Improper integrals}
+\begin{align*}
+	\int_{-3}^2 \frac{1}{6+2x}\ dx &= \lim_{a \to -3} \int_a^2 \frac{1}{6+2x}\ dx \\
+				       &= \lim_{a \to -3} \left[ \frac{\ln|2x+6|}{2} \right]_a^2 \\
+				       &= \lim_{a \to -3} \frac{\ln|2(2)+6|}{2} - \lim_{a \to -3} \frac{\ln|2(a)+6|}{2}
+\end{align*}
+the limit is undefined therefore the integral is divergent.
 
-    \node at (2, -0.3) {$\sqrt{9 - 25x^2}$};
-    \node at (-0.5, 1.5) {$5x$};
-    \node at (2, 1.8) {$3$};
+\subsubsection*{Revolution}
+Find the volume of the region bounded by
+\[
+	y = x^2 -6x +9 \quad \text{and} \quad y=-x^2 +6x -1
+\]
+rotated about $x=8$. These are two parabolas, find the horizontal integration bounds by setting them equaal to eachother and solving for $x$. Then find the vertex by finding the critical points by setting derivative to zero and solving. Height as a function of $x$ is the difference between the two functions, radius is $8 - x$.
 
-    \draw (0, 0) rectangle (0.3, 0.3);
+\subsubsection*{Trig sub + u-sub}
+\[
+	\int_{-7}^{4} \frac{1}{t^4 \sqrt{t^2-25}}\ dt
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+    % Draw the triangle
+    \draw[thick] (0, 0) -- (5, 0) -- (5, 4) -- cycle;
+
+    % Label the sides
+    \node at (2.5, -0.3) {5}; % Adjacent side
+    \node[rotate=90] at (5.3, 2) {\(\sqrt{t^2-25}\)}; % Opposite side
+    \node at (2.5, 2.2) {\(t\)}; % Hypotenuse
+
+    % Label the angle
+    \node at (0.3, 0.3) {\(\theta\)};
+
+    % Mark the angle
+    \draw[thick] (0.5, 0) arc[start angle=0, end angle=38, radius=0.5];
+
+    % Right angle symbol
+    \draw (5, 0) -- ++(-0.3, 0) -- ++(0, 0.3);
 \end{tikzpicture}
-
-Let $x = \frac{3}{5} \sin \theta$, $dx = \frac{3}{5} \cos \theta \ d\theta$, and $\sec \theta = \frac{3}{\sqrt{9-25x^2}}$, then;
+\end{center}
 
 \begin{align*}
-	\int \frac{x^2}{\sqrt{9-25x^2}}\ dx &= \int \left( \frac{3 \sin \theta}{5}\right)^2 \cdot \frac{\sec \theta}{3} \cdot \frac{3}{5}\cos \theta \ d \theta \\
-					    &= \int \frac{9}{125} \sin^2 \theta \ d \theta \\
-					    &= \frac{9}{125} \int \frac{1-\cos(2 \theta)}{2} \ d \theta \\
-					    &= \frac{9}{250} \int 1 - \cos(2 \theta) \ d \theta \\
-					    &= \frac{9}{250} \left[ \theta - \frac{\sin 2\theta}{2} \right] + C \\
-					    &= \frac{9}{250} \left[ \theta - 2 \sin \theta \cos \theta \right] + C \\
-					    &= \frac{9}{250} \left[ arcsin\left(\frac{5x}{3}\right) - 2\left(\frac{5x}{3}\right)\left(\frac{\sqrt{9-25x^2}}{3} \right) \right] + C
+	\sec \theta &= \frac{t}{5} \\
+	\tan \theta &= \frac{\sqrt{t^2-25}}{5} \\
+	\frac{d}{dt} 5 \sec \theta &= \frac{d}{dt} t \implies 5 \sec \theta \tan \theta \frac{d \theta}{dt} = 1
 \end{align*}
+then make our substitutions;
+\begin{align*}
+	\int_{-7}^{4} &\frac{1}{5^4 \sec^4 \theta} \cdot \frac{1}{5 \tan \theta} 5\sec\theta\tan\theta \frac{d \theta}{dt}\ dt \\
+	&= \frac{1}{5^4} \cdot \frac{1}{sec^3 \theta} \frac{d \theta}{dt}\ dt \\
+	& \text{by ROS} \\
+	&= \frac{1}{5^4} \int_A^B \cos^3\theta\ d \theta \\
+	&= \frac{1}{5^4} \int_A^B (1-\sin^2 \theta) \cos\theta\ d \theta \\
+	&\text{let $u = \sin \theta$} \\
+	...
+\end{align*}
+
+
+\subsubsection*{Taylor series}
+Find T$_4(x)$ for $x$ near $x=1$ for the function
+\[
+	f(x) = \ln (1+2x)
+\]
+
+\begin{align*}
+	f^\prime(x) &= \frac{1}{2x+1} \cdot 2 \biggr\vert_{x=1} = \frac{2}{3} \\
+	f^{\prime \prime}(x) &= -\frac{2^2}{(2x+1)^2} \biggr\vert_{x=1} = \frac{2^2}{3^2} \\
+	f^{\prime \prime \prime}(x) &= \frac{2^4}{(2x+1)^3} \biggr\vert_{x=1} = \frac{2^4}{3^3}\\
+	f^{\prime \prime \prime \prime}(x) &= -\frac{2^5 \cdot 3}{(2x+1)^4} \biggr\vert_{x=1} = \frac{2^5}{3^3}
+\end{align*}
+The use Talor's formula;
+\[
+	f(a) + \frac{f^\prime(a)}{1!}(x-a) + \frac{f^{\prime \prime}(a)}{2!}(x-a)^2 + \frac{f^{\prime \prime \prime}(a)}{3!}(x-a)^3 + \dots
+\]
+
+\subsubsection*{Power Series Integral}
+Evaluate the following integral using a power series;
+\[
+	\int \frac{1}{1+x^6}\ dx
+\]
+We know that
+\[
+	1 + x + x^2 + x^3 + \dots = \frac{1}{1-x}
+\]
+therefore
+\[
+	1 + (-x^6) + (-x^6)^2 + (-x^6)^3 + \dots = \frac{1}{1+x^6}
+\]
+and
+\begin{align*}
+	\int 1-x^6+x^{12}-x^{18} + \dots \ dx &= x - \frac{x^7}{7}+\frac{x^13}{13}-\frac{x^19}{19} + \dots \\
+	&= \sum_{n=0}^\infty (-1)^n \frac{ x^{6n+1}}{6n+1} + C
+\end{align*}
+
+\subsubsection*{Convergence tests}
+Is the series absolutely convergent, conditionally convergent, or divergent;
+\[
+	\sum_{n=1}^\infty (-1)^n \frac{\ln n}{\sqrt{n}}
+\]
+absolute convergence:
+\[
+	\sum_{n=1}^\infty \Biggr\vert (-1)^n \frac{\ln n}{\sqrt{n}} \Biggr\vert = \sum_{n=1}^\infty \frac{\ln n}{\sqrt{n}}
+\]
+Comparison test
+for power series it converges for $p > 1$ and diverges for $p \le 1$. We know that $\frac{ln n}{\sqrt{n}} > \frac{1}{\sqrt{n}}$ for $n>3$ so we can check
+\[
+	\sum = \frac{1}{n^p}
+\]
+and because
+\[
+	\sum_{n=1}^\infty = \frac{1}{n^{1/2}}
+\]
+we say that by the comparison test the series is divergent. Now check conditional convergence, alternating series test; is the function decreasing?
+\[
+	f^\prime(x) = \frac{\sqrt{x}/x - \ln x \frac{1}{2\sqrt{x}}}{\sqrt{x}^2} = \frac{2-\ln x}{2x^{3/2}}
+\]
+which is decreasing for $x > e^2$. Now we check that the limit approaches 0.
+\[
+	\lim_{n \to \infty} \frac{\ln n}{\sqrt{n}} \quad \text{idet.}\ \frac{\infty}{\infty}
+\]
+Using L'H;
+\[
+	\lim_{n \to \infty} \frac{2}{\sqrt{n}} = 0
+\]
+Therefore the series converges conditionally
 
 \subsubsection*{Notable tricks if you're stuck}
 \begin{enumerate}
@@ -194,6 +302,7 @@ Let $x = \frac{3}{5} \sin \theta$, $dx = \frac{3}{5} \cos \theta \ d\theta$, and
 	\item \[ \frac{x^2}{x^2+1} = \frac{x^2 + 1 - 1}{x^2 +1} = 1 - \frac{1}{x^2+1} \]
 	\item related to (2) find creative ways to multiply by 1 to create substitutable problems. i.e. $\int \sec \theta$ see below
 	\item when doing $u$ sub you can write $x$ as a function of $u$ and sub out remaining $x$ that are unresolved by $\frac{du}{dx}$
+	\item for absolute value setup as piecewise and integrate both sides of zero.
 \end{enumerate}
 
 \begin{align*}
@@ -204,6 +313,22 @@ Let $x = \frac{3}{5} \sin \theta$, $dx = \frac{3}{5} \cos \theta \ d\theta$, and
 				    &= \ln|\sec \theta + \tan \theta | + C
 \end{align*}
 
+\subsubsection*{Series Tests}
+Alternating series;
+\[
+	\sum (-1)^{n-1} b_n = b_1 - b_2 + b_3 - b_4 +\dots
+\]
+if $b_{n+1} > n$ for all $n$ and if $\lim_{n \to \infty} b_n = 0$ then the series is convergent.\\
+Ration test;
+\[
+	\lim_{n \to \infty} \Biggr\vert \frac{a_{n+1}}{a_n} \Biggr\vert
+\]
+if the limit is $< 1$ absolutely convergent if $> 1$ divergent.\\
+Root test;
+\[
+	\lim_{n \to \infty} \sqrt[n]{|a_n|}
+\]
+same conditions as ratio test.
 
 \end{multicols}
 

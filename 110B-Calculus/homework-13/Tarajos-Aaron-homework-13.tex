@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 13} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{10.2 Question 5}
+Find an equation of the tangent to the curve at the point
+corresponding to the given value of the parameter.
+\[
+	x = t\cos t, \quad y = t\sin t; \quad t = \pi
+\]
+
+\subsection*{Solution}
+We start by finding the coordinate point;
+
+\[
+	x = \pi \cos \pi = -\pi
+\]
+and
+
+\[
+	y = \pi \sin \pi = 0
+\]
+so we have the point $(-\pi,0)$. Now we find $\frac{dx}{dt}$ and $\frac{dy}{dt}$ to solve for $\frac{dy}{dx}$;
+\[
+	\frac{dx}{dt} = \frac{d}{dt} \left[ t \cos t \right] = \cos t - t \sin t
+\]
+and
+
+\[
+	\frac{dy}{dt} = \frac{d}{dt} \left[ t \sin t \right] = \sin t + t\cos
+\]
+then $\frac{dy}{dx}$ is given by;
+\begin{align*}
+	\frac{dy}{dx} &= \frac{dy/dt}{dx/dt} \\
+		      &= \frac{\sin t + t\cos}{\cos t - t \sin t} \\
+\frac{dy}{dx}\bigg\rvert_{t=\pi} &= \frac{\sin \pi + \pi \cos \pi}{\cos \pi - \pi \sin \pi} \\
+				 &= \frac{0 + -\pi}{-1 + 0} \\
+				 &= \pi
+\end{align*}
+Now that we have our slope, and our point, our tangent line is given by;
+\begin{align*}
+	y - y_1 &= m(x-x_1) \\
+	y - 0 &= \pi(x-(-\pi)) \\
+	y &= \pi x + \pi^2
+\end{align*}
+Note: I wish I had more time to mess around with this problem, this is Archimedes Spiral and there are a lot of interesting maths here.
+
+
+\end{document}
