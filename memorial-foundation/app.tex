@@ -1,0 +1,213 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\geometry{headheight=15mm}
+
+\definecolor{lightgrey}{rgb}{0.85, 0.85, 0.85} % Light grey background
+
+\hypersetup{
+    pdfsubject={Fillable PDF Form},
+    pdfcreator={pdflatex},
+    pdfproducer={pdflatex},
+    pdfborder={0 0 0}, % Removes hyperlink borders
+    colorlinks=true,
+    linkcolor=lightgrey
+}
+
+% Define body page style
+\fancypagestyle{body}{
+  \fancyhf{}
+  \fancyhead[L]{\includegraphics[scale=0.4]{letterhead.png}}
+  \fancyhead[R]{Spring 2025}
+}
+
+\begin{document}
+
+\includegraphics{letterhead.png}
+\begin{center}
+	\LARGE{Memorial Scholarship Application}
+\end{center}
+
+\begin{Form} % Start the form environment
+
+\begin{center}
+	\Large{Brother \TextField[name=name, width=3cm, height=12pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]}
+	Class of \TextField[name=class, width=2cm, height=12pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+\end{center}
+
+\section{Instructions}
+Fill each section of the form below on a computer using a pdf editor of your choice (web browsers work as well). 
+We recommend writing the essay in a document editor of your choice and pasting the response into the respective section.
+After completion, email your completed form to\\dasartor@lbl.gov \textbf{by the date indicated by the Chapter President.}\\[12pt]
+While we acknowledge the importance of artificial intelligence in the world and its usefulness as a tool, it is important to uphold the traditions of Alpha Delta Phi and therefore ask that you use it for nothing more than an initial outline to organize your thoughts and intentions.
+We want to hear your story in your words, and we strongly believe that this cannot be done unless the usage of AI is limited.
+For brothers who have applied in prior terms, focus on the things that have changed since your last application.
+
+\pagebreak
+\pagestyle{body}
+\section*{Familial Background}
+\subsection*{Father}
+\noindent Father's Name: \TextField[name=father_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Occupation: \TextField[name=father_occupation, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Highest Level of Education: \TextField[name=father_education, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+\noindent Address (Street, City, State/Province, Country ZIP): \\
+\TextField[name=father_address, width=\linewidth, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+
+\subsection*{Mother}
+\noindent Mother's Name: \TextField[name=mother_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Occupation: \TextField[name=mother_occupation, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Highest Level of Education: \TextField[name=mother_education, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+\noindent Address (Street, City, State/Province, Country ZIP): \\
+\TextField[name=mother_address, width=\linewidth, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+
+\subsection*{Income}
+\noindent Estimated Family Income: \TextField[name=income, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+
+\noindent Tax Filing Status:
+\CheckBox[name=single, width=10pt, height=10pt, bordercolor=black]{} Single \quad
+\CheckBox[name=married, width=10pt, height=10pt, bordercolor=black]{} Married \quad
+\CheckBox[name=divorced, width=10pt, height=10pt, bordercolor=black]{} Divorced\newline
+
+\noindent Other Dependents (Age, School, and Expenses Paid by Parents):\\
+\TextField[name=dependents, width=\linewidth, height=3cm, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0, multiline=true]{}
+
+\section*{Academics}
+
+\noindent High School: \TextField[name=high_school, width=10cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Did you attend another college before UC Berkeley?\quad
+\CheckBox[name=college_yes, width=10pt, height=10pt, bordercolor=black]{} Yes\quad
+\CheckBox[name=college_no, width=10pt, height=10pt, bordercolor=black]{} No\newline
+
+\noindent If yes, what is the name of your college?\newline
+\TextField[name=previous_college, width=10cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Major: \TextField[name=major, width=10cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Anticipated Graduation Date: \TextField[name=grad_date, width=10cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Units This Term: \TextField[name=units_this_term, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+\quad Units Last Term: \TextField[name=units_last_term, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Units Completed at Berkeley: \TextField[name=units_berkeley, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+\quad Cumulative GPA (Berkeley): \TextField[name=cumulative_gpa, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Prior Term GPA: \TextField[name=prior_gpa, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+\quad Average Study Hours per Week: \TextField[name=study_hours, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\noindent Career Objective: \newline
+\TextField[name=career_objective, width=\linewidth, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\newline
+
+\subsubsection*{Courseload}
+\begin{tabbing}
+    \hspace{9cm} \= \hspace{3cm} \= \hspace{2cm} \kill
+    \textbf{Name} \> \textbf{Department} \> \textbf{Units}\\
+    1. \TextField[name=course1_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course1_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=course1_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    2. \TextField[name=course2_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course2_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=course2_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    3. \TextField[name=course3_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course3_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=course3_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    4. \TextField[name=course4_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course4_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=course4_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    5. \TextField[name=course5_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course5_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=course5_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    6. \TextField[name=course6_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course6_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=course6_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+\end{tabbing}
+
+\subsubsection*{Activities}
+\begin{tabbing}
+    \hspace{9cm} \= \hspace{3cm} \= \hspace{2cm} \kill
+    \textbf{Name} \> \textbf{Position} \> \textbf{Hours/Week}\\
+    1. \TextField[name=activity1_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=activity1_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=activity1_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    2. \TextField[name=act2_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act2_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=act2_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    3. \TextField[name=act3_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act3_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=act3_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    4. \TextField[name=act4_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act4_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=act4_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    5. \TextField[name=act5_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act5_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+	\TextField[name=act5_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\[12pt]
+    6. \TextField[name=act6_name, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act6_dept, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \>
+    \TextField[name=act6_units, width=2cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+\end{tabbing}
+
+\section*{Alpha Delta Phi Offices and Activities}
+\noindent Current Office(s): \TextField[name=current_office, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Past Office(s): \TextField[name=past_office, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Other House Activities: \TextField[name=house_activities, width=10cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+
+\section*{Employment}
+\noindent Current Employer: \TextField[name=current_employer, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Job Description: \TextField[name=job_desc, width=8cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+Hours Per Week: \TextField[name=hours_per_week, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}
+Earnings Per Week: \TextField[name=earnings_per_week, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\[10pt]
+
+\pagebreak
+
+\section*{Financial Data}
+\begin{tabular}{l c}
+    \textbf{Income Sources} & \textbf{Amount (USD)} \\
+	Scholarships & \TextField[name=scholarships, width=3cm, height=2pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{}\\
+				 &\\
+    Loans & \TextField[name=loans, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+		  &\\
+    Summer Work & \TextField[name=summer_work, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+				&\\
+    Work During School & \TextField[name=work_school, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+					   &\\
+    Support from Parents & \TextField[name=parent_support, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+						 &\\
+    Savings & \TextField[name=savings, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+			&\\
+    \textbf{Total Income} & \TextField[name=total_income, width=3cm, height=8pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+						  &\\
+    \textbf{Expenses} & \textbf{Amount (USD)} \\
+    Tuition and Fees & \TextField[name=tuition, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+					 &\\
+    Books and Supplies & \TextField[name=books, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+					   &\\
+    Rent and Bills & \TextField[name=rent, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+				   &\\
+    Other Expenses & \TextField[name=other_expenses, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+				   &\\
+    \textbf{Total Expenses} & \TextField[name=total_expenses, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+							&\\
+    \textbf{Net Balance (Income - Expenses)} & \TextField[name=net_balance, width=3cm, height=10pt, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0]{} \\
+    \end{tabular}\\[12pt]
+\noindent How do you plan to cover any substantial differences between income and expenses?\\
+\TextField[name=discrepency, width=\linewidth, height=3cm, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0, multiline=true]{}
+
+\pagebreak
+\section*{Essay:}
+\textit{Please give a one-page biography that includes your plans for the future. Also include your reasons for applying to the scholarship.}\\[10pt]
+\TextField[name=biography_1, width=\linewidth, height=17.5cm, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0, multiline=true]{}
+
+\pagebreak
+\TextField[name=biography_2, width=\linewidth, height=21cm, backgroundcolor=lightgrey, bordercolor=lightgrey, borderwidth=0, multiline=true]{}
+
+\end{Form}
+
+\end{document}
+
+
+
+
+

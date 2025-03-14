@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 11} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{11.9 Question 25}
+Evaluate the indefinite integral as a power series. What is the radius of convergence?
+\[
+	\int \frac{t}{1-t^8}\ dt
+\]
+
+\subsection{Solution}
+The integrand can be expanded using the geometric series where
+\begin{equation}
+	\frac{1}{1-x} = \sum_{n=0}^\infty x^n
+\end{equation}
+and so we have
+\begin{align*}
+	\int \frac{t}{t-t^8} &= \int t \cdot \sum_{n=0}^\infty t^{8n} \\
+			     &= \int \sum_{n=0}^\infty t^{8n+1} \\
+			     &= \sum_{n=0}^\infty \int t^{8n+1} \\
+			     &= \sum_{n=0}^\infty \frac{t^{8n+2}}{8n+2} + C
+\end{align*}
+because this is a geometric series, the radius of convergence is 1. We can show this using the ratio test where the series converges if;
+\[
+	L = \lim_{n \to \infty} \left| \frac{a_n +1}{a_n} \right| < 1
+\]
+and diverges if $L > 1$. Let $a_n = \frac{t^{8n+2}}{8n+2}$, then;
+\begin{align*}
+	\lim_{n \to \infty} \frac{\left|\frac{t^{8n102}}{8n+10}\right|}{\left| \frac{t^{8n+2}}{8n+2} \right|} &=\lim_{n \to \infty} \left|\frac{t^{8n+10}}{8n+10} \frac{8n+2}{t^{8n+2}}\right| \\
+													      &= \lim_{n \to \infty} \left| t^{8n+10 - 8n - 2} \frac{8n+2}{8n+10}\right| \\
+													      &=\lim_{n \to \infty} \left| t^8 \frac{8n+2}{8n+10}\right| \\
+													      &= \left| t^8 \cdot 1\right| \\
+													      &=\left| t^8 \right|
+\end{align*}
+then
+
+\[
+	\left| t^8 \right| < 1 \implies \left| t \right| < 1
+\]
+therefore the radius of convergence is $R=1$
+
+\end{document}

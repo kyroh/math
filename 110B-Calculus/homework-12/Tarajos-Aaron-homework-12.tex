@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{physics}
+\usepackage{cancel}
+\usepackage{enumitem}
+\usepackage{txfonts}
+
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, top=1cm, bottom=2cm, left=2cm, right=2cm, includehead, includefoot]{geometry}
+
+\begin{document}
+
+\noindent
+Math 110B - Calculus II  \hfill Prof. Jamey Bass
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\begin{center}
+    \textbf{\LARGE Homework 12} \\
+    \vspace{12pt}
+    \large Aaron W. Tarajos \\
+    \textit{\today}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\section*{11.10 Question 25}
+ Find the Taylor series for $f(x)$ centered at the given value
+of $a$. [Assume that $f$ has a power series expansion. Do not show
+that $R_n(x)\to 0$]. Also find the associated radius of convergence.
+
+\[
+	f(x) = \sin x, \quad a = \pi
+\]
+
+\subsection*{Solution}
+Firs we write out the first couple of derivates for $f(x)$ and solve for $x = \pi$
+\begin{align*}
+	f^\prime(x) &= \cos x \\
+	f^{\prime\prime}(x) &= -\sin x \\
+	f^{\prime\prime\prime}(x) &= -\cos x \\
+	f^{(4)}(x) &= \sin x
+\end{align*}
+and we see that only the odd terms will construct the series because even derivatives evaluated at $\pi$ are zero; so we can write the odd terms of the taylor series as;
+\begin{align*}
+	n = 1 &\rightarrow \frac{1}{1!}(x-\pi) \\
+	n=3 &\rightarrow \frac{1}{3!}(x-\pi)^3 \\
+	n=5 &\rightarrow \frac{-1}{5!}(x-\pi)^5
+\end{align*}
+which we use to construct the general term of the series;
+\begin{equation}
+	f(x) = -\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}(x-\pi)^{2n+1}
+\end{equation}
+and then find the radius of convergene using the ration test;
+\begin{align*}
+	L &= \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| \\
+	  &= \lim_{n \to \infty} \left| \frac{(x - \pi)^{2(n+1)+1}/(2(n+1)+1)!}{(x - \pi)^{2n+1}/(2n+1)!} \right| \\
+	  &= \lim_{n \to \infty} \left| \frac{(x - \pi)^2}{(2n+3)(2n+2)} \right| = 0
+\end{align*}
+because $L=0$ the series converges for all $x \in \mathbb{R}$
+
+
+\end{document}
